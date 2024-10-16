@@ -5,8 +5,6 @@ const newNoteContainer = document.getElementById('new-note-container');
 
 function addNoteListener(): void {
   document.getElementById("add-note")?.addEventListener("click", () => {
-    console.log("clicked");
-
     const titleInput = document.getElementById("cr-noteTitle") as HTMLInputElement;
     const textInput = document.getElementById("cr-noteText") as HTMLInputElement;
 
@@ -60,20 +58,18 @@ function createNoteForm(): void {
       </div>
       <button id="add-note" class="addButton">Añadir nota</button>  
     </div>
-  `
+  `;
 
   newNoteContainer?.appendChild(noteForm);
 }
 
 document.getElementById("newNoteBtn")?.addEventListener("click", () => {
-  createNoteForm()
-  addNoteListener()
+  createNoteForm();
+  addNoteListener();
 });
 
-// debug
-
-createNote("lorem", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, corporis, debitis deserunt dignissimos distinctio ducimus eos expedita nam quam quos ratione recusandae sint ullam veniam? Cumque, officia, reiciendis. Exercitationem hic in mollitia! Amet assumenda autem consequuntur cum delectus distinctio doloremque ea eaque, earum ex excepturi expedita illo itaque laboriosam laudantium magnam minima nemo nisi odio placeat, quis quos repellat reprehenderit similique sint tempore voluptatibus. Distinctio earum explicabo hic magni maiores nam nobis voluptatem? A accusamus ad, aliquam assumenda cumque dignissimos dolor dolorum ex, expedita fugiat impedit incidunt ipsa labore, non odit perspiciatis praesentium quas quos repudiandae ut velit vero?")
-
-createNote("lorem", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, corporis, debitis deserunt dignissimos distinctio ducimus eos expedita nam quam quos ratione recusandae sint ullam veniam? Cumque, officia, reiciendis. Exercitationem hic in mollitia! Amet assumenda autem consequuntur cum delectus distinctio doloremque ea eaque, earum ex excepturi expedita illo itaque laboriosam laudantium magnam minima nemo nisi odio placeat, quis quos repellat reprehenderit similique sint tempore voluptatibus. Distinctio earum explicabo hic magni maiores nam nobis voluptatem? A accusamus ad, aliquam assumenda cumque dignissimos dolor dolorum ex, expedita fugiat impedit incidunt ipsa labore, non odit perspiciatis praesentium quas quos repudiandae ut velit vero?")
-createNote("lorem", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, corporis, debitis deserunt dignissimos distinctio ducimus eos expedita nam quam quos ratione recusandae sint ullam veniam? Cumque, officia, reiciendis. Exercitationem hic in mollitia! Amet assumenda autem consequuntur cum delectus distinctio doloremque ea eaque, earum ex excepturi expedita illo itaque laboriosam laudantium magnam minima nemo nisi odio placeat, quis quos repellat reprehenderit similique sint tempore voluptatibus. Distinctio earum explicabo hic magni maiores nam nobis voluptatem? A accusamus ad, aliquam assumenda cumque dignissimos dolor dolorum ex, expedita fugiat impedit incidunt ipsa labore, non odit perspiciatis praesentium quas quos repudiandae ut velit vero?")
-createNote("lorem", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, corporis, debitis deserunt dignissimos distinctio ducimus eos expedita nam quam quos ratione recusandae sint ullam veniam? Cumque, officia, reiciendis. Exercitationem hic in mollitia! Amet assumenda autem consequuntur cum delectus distinctio doloremque ea eaque, earum ex excepturi expedita illo itaque laboriosam laudantium magnam minima nemo nisi odio placeat, quis quos repellat reprehenderit similique sint tempore voluptatibus. Distinctio earum explicabo hic magni maiores nam nobis voluptatem? A accusamus ad, aliquam assumenda cumque dignissimos dolor dolorum ex, expedita fugiat impedit incidunt ipsa labore, non odit perspiciatis praesentium quas quos repudiandae ut velit vero?")
+document.onkeydown = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    document.getElementById("cr-noteContainer")?.remove();
+  }
+}
