@@ -107,11 +107,8 @@ textarea:focus {
     display: flex;
     grid-template-columns: repeat(4, 1fr);
     overflow-y: auto;
-    max-height: 90vh;
-
 }
 
-/* Estilo de cada nota individual */
 .note {
     background-color: var(--light-purple);
     border-radius: 8px;
@@ -127,21 +124,18 @@ textarea:focus {
     border-left: 5px solid var(--hard-purple);
 }
 
-/* Hover para las notas */
 .note:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Título de la nota */
 .note h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: #333;
 }
 
-/* Contenido de la nota */
 .note p {
     font-size: 1rem;
-    color: #666;
+    color: #444;
 }
