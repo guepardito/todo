@@ -1,4 +1,4 @@
-var noteCounter: number = 0;
+let noteCounter: number = 0;
 
 const noteContainer = document.getElementById('note-container');
 const newNoteContainer = document.getElementById('new-note-container');
@@ -27,7 +27,7 @@ function addNoteListener(): void {
   });
 }
 
-function createNote(title: string, text?: string): void {
+function createNote(title: string, text: string): void {
   // crear un nuevo elemento <section> que contenga la nota
   const section: HTMLElement = document.createElement("section");
   section.id = noteCounter.toString();
