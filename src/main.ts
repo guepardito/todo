@@ -27,10 +27,60 @@ function addCreateNoteListener(): void {
   });
 }
 
-function addNoteEditListener(id: string): void {
+function addEditListener(id: string): void {
+  document.getElementById("add-note")?.addEventListener("click", () => {
+    const titleInput = document.getElementById("cr-noteTitle") as HTMLInputElement;
+    const textInput = document.getElementById("cr-noteText") as HTMLInputElement;
+
+    if (titleInput && textInput) {
+      const title: string = titleInput.value;
+      const text: string = textInput.value;
+
+      if (text) {
+        if (title) {
+          editNote(id, text, title);
+        } else {
+          editNote(id, text, "Nota " + id);
+        }
+
+        document.getElementById("cr-noteContainer")?.remove();
+      } else {
+        alert("Introduce un texto para crear la nota");
+      }
+    }
+  });
+}
+
+function editNote(noteId: string, text: string, title?: string): void {
+  const noteElement = document.getElementById(noteId);
+
+  if (noteElement) {
+    // Cambiar el título si se proporciona
+    const titleElement: HTMLHeadingElement = noteElement.getElementsByTagName("h2")[0];
+    if (titleElement && title) {
+      titleElement.textContent = title;
+    }
+
+    // Cambiar el texto de la nota
+    const textElement: HTMLParagraphElement = noteElement.getElementsByTagName("p")[0];
+    if (textElement) {
+      textElement.textContent = text;
+    }
+  }
+
+}
+
+function addNoteEditListener(id: string, noteId: string): void {
   document.getElementById(id)?.addEventListener("click", () => {
     noteForm("edit");
+    addEditListener(noteId);
   });
+}
+
+function addNoteDeleteListener(id: string, noteId: string): void {
+  document.getElementById(id)?.addEventListener("click", () => {
+    document.getElementById(noteId)?.remove();
+  })
 }
 
 function createNote(title: string, text: string): void {
@@ -44,8 +94,8 @@ function createNote(title: string, text: string): void {
   let deleteButtonId: string = "delete-note-button-" + noteCounter.toString();
 
   section.innerHTML = `
-    <h2>${title}</h2>
-    <p>${text}</p>
+    <h2 class="note-title">${title}</h2>
+    <p class="note-text">${text}</p>
     <div id="note-button-container">
       <button id=${editButtonId} class="edit-note-button note-button">
         <img src="images/pencil.svg" alt="Edit">
@@ -60,7 +110,8 @@ function createNote(title: string, text: string): void {
   `;
 
   noteContainer?.appendChild(section);
-  addNoteEditListener("edit-note-button-" + noteCounter.toString());
+  addNoteEditListener(editButtonId, noteCounter.toString());
+  addNoteDeleteListener(deleteButtonId, noteCounter.toString());
   noteCounter++;
 }
 
@@ -104,8 +155,8 @@ document.onkeydown = (event: KeyboardEvent) => {
   }
 }
 
-createNote("hola", "holis");
-createNote("hola", "holis");
+
+
 createNote("hola", "holis");
 createNote("hola", "holis");
 createNote("hola", "holis");

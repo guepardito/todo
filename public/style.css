@@ -162,9 +162,6 @@ textarea:focus {
     transition: transform 0.3s ease;
 }
 
-.note-button:hover {
-}
-
 img {
     width: 70px;
 }
