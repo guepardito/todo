@@ -89,6 +89,10 @@ textarea:focus {
     outline: none;
 }
 
+#button-container {
+    margin: 0.6rem;
+}
+
 .addButton {
     padding: 0.8rem;
     background-color: var(--cool-purple);
@@ -122,6 +126,7 @@ textarea:focus {
     min-height: 150px;
     word-wrap: break-word;
     border-left: 5px solid var(--hard-purple);
+    position: relative;
 }
 
 .note:hover {
@@ -138,4 +143,38 @@ textarea:focus {
 .note p {
     font-size: 1rem;
     color: #444;
+}
+
+#note-button-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.note-button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+.note-button:hover {
+}
+
+img {
+    width: 70px;
+}
+
+.note-button img{
+    width: 20px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.note-button:hover img {
+    transform: scale(1.2);
 }
