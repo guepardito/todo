@@ -90,7 +90,6 @@ function createNote(title: string, text: string): void {
   section.classList.add("note");
 
   let editButtonId: string = "edit-note-button-" + noteCounter.toString();
-  let downloadButtonId: string = "download-note-button-" + noteCounter.toString();
   let deleteButtonId: string = "delete-note-button-" + noteCounter.toString();
 
   section.innerHTML = `
@@ -99,9 +98,6 @@ function createNote(title: string, text: string): void {
     <div id="note-button-container">
       <button id=${editButtonId} class="edit-note-button note-button">
         <img src="images/pencil.svg" alt="Edit">
-      </button>
-      <button id=${downloadButtonId} class="download-note-button note-button">
-        <img src="images/download.svg" alt="Descargar">
       </button>
       <button id=${deleteButtonId} class="delete-note-button note-button">
         <img src="images/cross.svg" alt="Eliminar">
@@ -154,9 +150,3 @@ document.onkeydown = (event: KeyboardEvent) => {
     document.getElementById("cr-noteContainer")?.remove();
   }
 }
-
-
-
-createNote("hola", "holis");
-createNote("hola", "holis");
-createNote("hola", "holis");
